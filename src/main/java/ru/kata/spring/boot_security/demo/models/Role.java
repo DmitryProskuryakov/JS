@@ -15,10 +15,7 @@ public class Role implements GrantedAuthority {
     private String name;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
-    @JoinTable(name = "users_roles",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+            CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY, mappedBy = "listRoles")
     private List<User> userList;
 
     public Role() {
