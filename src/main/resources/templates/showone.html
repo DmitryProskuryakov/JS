@@ -26,13 +26,13 @@
     <td th:text="${user.getAge()}"/>
     <td>
 
-        <a th:href="@{/users/change?id={num}(num=${user.getId()})}" th:text="Change"></a>
+        <a th:href="@{/admin/change?id={num}(num=${user.getId()})}" th:text="Change"></a>
 
     </td>
 
     <td>
 
-    <a th:href="@{/users/delete?id={num}(num=${user.getId()})}" th:text="Delete"></a>
+    <a th:href="@{/admin/delete?id={num}(num=${user.getId()})}" th:text="Delete"></a>
 
     </td>
     </tbody>

@@ -6,16 +6,16 @@
     <title>New User</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users}" th:object="${user}">
+<form th:method="POST" th:action="@{/}" th:object="${user}">
     <label for="name"> Enter name </label>
     <input type="text" th:field="*{name}" id="name">
     <br/>
 
-    <label for="age"> Enter surname </label>
+    <label for="age"> Enter age </label>
     <input type="text" th:field="*{age}" id="age">
     <br/>
 
-    <label for="password"> Enter age </label>
+    <label for="password"> Enter password </label>
     <input type="text" th:field="*{password}" id="password">
     <br/>
     <input type="submit" VALUE="Create!">

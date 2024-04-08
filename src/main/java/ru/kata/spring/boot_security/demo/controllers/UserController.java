@@ -10,7 +10,6 @@ import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 
 
 @Controller
-@RequestMapping("/users")
 public class UserController {
     private final UserService userServiceImpl;
 
@@ -19,7 +18,7 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
-    @GetMapping("/get-all")
+    @GetMapping("/admin/get-all")
     public String getAllUsers(@RequestParam(value = "id", required = false) Integer id, Model model) {
         if (id != null) {
             model.addAttribute("user", userServiceImpl.findOne(id));
@@ -30,13 +29,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/delete")
+    @GetMapping("/admin/delete")
     public String deleteUser(@RequestParam(value = "id", required = false) Integer id) {
         userServiceImpl.delete(id);
-        return "redirect:/users/get-all";
+        return "redirect:/admin/get-all";
     }
 
-    @GetMapping("/new")
+    @GetMapping("/admin/new")
     public String newPerson(@ModelAttribute("user") User user) {
         return "new";
     }
@@ -44,10 +43,10 @@ public class UserController {
     @PostMapping()
     public String addNewUser(@ModelAttribute("user") User user) {
         userServiceImpl.save(user);
-        return "redirect:/users/get-all";
+        return "redirect:/admin/get-all";
     }
 
-    @GetMapping("/change")
+    @GetMapping("/admin/change")
     public String changeUser(@ModelAttribute("user") User user) {
         return "change";
     }
@@ -55,6 +54,6 @@ public class UserController {
     @PatchMapping()
     public String editUser(@ModelAttribute("user") User user, @RequestParam(value = "id", required = false) Integer id) {
         userServiceImpl.update(id, user);
-        return "redirect:/users/get-all";
+        return "redirect:/admin/get-all";
     }
 }
