@@ -10,6 +10,7 @@ import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 
 
 @Controller
+@RequestMapping("/admin")
 public class UserController {
     private final UserService userServiceImpl;
 
@@ -18,7 +19,7 @@ public class UserController {
         this.userServiceImpl = userServiceImpl;
     }
 
-    @GetMapping("/admin/get-all")
+    @GetMapping("/get-all")
     public String getAllUsers(@RequestParam(value = "id", required = false) Integer id, Model model) {
         if (id != null) {
             model.addAttribute("user", userServiceImpl.findOne(id));
@@ -29,13 +30,13 @@ public class UserController {
         }
     }
 
-    @GetMapping("/admin/delete")
+    @GetMapping("/delete")
     public String deleteUser(@RequestParam(value = "id", required = false) Integer id) {
         userServiceImpl.delete(id);
         return "redirect:/admin/get-all";
     }
 
-    @GetMapping("/admin/new")
+    @GetMapping("/new")
     public String newPerson(@ModelAttribute("user") User user) {
         return "new";
     }
@@ -46,7 +47,7 @@ public class UserController {
         return "redirect:/admin/get-all";
     }
 
-    @GetMapping("/admin/change")
+    @GetMapping("/change")
     public String changeUser(@ModelAttribute("user") User user) {
         return "change";
     }
