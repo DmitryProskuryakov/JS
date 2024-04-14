@@ -20,7 +20,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Lazy
     UserServiceImpl userServiceImpl;
 
-    @Autowired
     public WebSecurityConfig(SuccessUserHandler successUserHandler) {
         this.successUserHandler = successUserHandler;
     }
@@ -34,10 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/users/**", "/admin/**").hasRole("ADMIN")
-                .antMatchers("/login/**", "/user/**").permitAll()
-                .anyRequest().hasAnyRole("USER", "ADMIN")
-                .and()
+                .antMatchers("/admin/**").permitAll()
+//                .antMatchers("/users/**", "/admin/**").hasRole("ADMIN")
+//                .antMatchers("/login/**", "/user/**").permitAll()
+//                .anyRequest().hasAnyRole("USER", "ADMIN")
+                .and().csrf().disable()
                 .formLogin().successHandler(successUserHandler)
                 .permitAll()
                 .and()
