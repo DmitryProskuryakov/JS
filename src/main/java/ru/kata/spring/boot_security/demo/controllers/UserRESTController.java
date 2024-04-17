@@ -27,13 +27,14 @@ public class UserRESTController {
     }
 
     @GetMapping()
-    public List<User> getAllUsers(@RequestParam(required = false) Integer id) {
+    public ResponseEntity<List<User>> getAllUsers(@RequestParam(required = false) Integer id) {
         if (id != null) {
             List<User> listUser = new ArrayList<>();
             listUser.add(userServiceImpl.findOne(id));
-            return listUser;
+            return new ResponseEntity<>(listUser, HttpStatus.OK);
         }
-        return userServiceImpl.findAll();
+        List<User> listUser = userServiceImpl.findAll();
+        return new ResponseEntity<>(listUser, HttpStatus.OK);
     }
 
     @PostMapping()
