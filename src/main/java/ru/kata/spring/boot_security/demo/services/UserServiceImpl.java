@@ -32,10 +32,8 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public User findOne(int id) {
-        Optional<User> foundPerson = userRepository.findById(id);
-
-        return foundPerson.orElse(null);
+    public Optional<User> findOne(int id) {
+        return userRepository.findById(id);
     }
 
     @Override
@@ -45,7 +43,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         if (userFromDb != null) {
             return;
         }
-        user.addRoleToUser(new Role("ROLE_USER"));
+        if (user.getListRoles() == null) {
+            user.addRoleToUser(new Role("ROLE_USER"));
+        }
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -54,22 +54,27 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Override
     @Transactional
     public void update(int id, User updatedPerson) {
-        updatedPerson.setId(id);
-        updatedPerson.setPassword(bCryptPasswordEncoder.encode(updatedPerson.getPassword()));
+        Optional<User> userFromDb = userRepository.findById(id);
+        User user;
 
-        Optional<User> user = userRepository.findById(id);
-
-        if (user.isPresent()) {
-            Set<Role> roleList = user.get().getListRoles();
-
-            for (Role role : roleList) {
-
-                if (role.getName().equals("ROLE_USER")) {
-                    updatedPerson.addRoleToUser(role);
-                }
-            }
+        if (userFromDb.isPresent()) {
+            user = userFromDb.get();
+        } else {
+            return;
         }
-        userRepository.save(updatedPerson);
+
+        user.setFirstName(updatedPerson.getFirstName());
+        user.setLastName(updatedPerson.getLastName());
+        user.setEmail(updatedPerson.getEmail());
+        user.setPassword(bCryptPasswordEncoder.encode(updatedPerson.getPassword()));
+        user.getListRoles().clear();
+        Set<Role> roleSet = (Set<Role>) updatedPerson.getAuthorities();
+
+        for (Role role : roleSet) {
+           user.addRoleToUser(role);
+        }
+
+        userRepository.save(user);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.DataBase;
+package ru.kata.spring.boot_security.demo.dataBase;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
