@@ -1,10 +1,6 @@
 package ru.kata.spring.boot_security.demo.models;
 
 
-import com.fasterxml.jackson.annotation.JacksonAnnotation;
-import com.fasterxml.jackson.annotation.JacksonInject;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -27,18 +23,16 @@ public class User implements UserDetails {
     private String password;
 
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    @JsonIgnore
     private Set<Role> listRoles;
 
     public User() {
     }
 
-    public User(String firstName, String lastName,  int age, String email, String password) {
+    public User(String firstName, String lastName, int age, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -107,7 +101,7 @@ public class User implements UserDetails {
     }
 
     public String getListRolesAsString() {
-        return listRoles.stream().map(el->el.getName().substring(el.getName().indexOf('_') + 1)).collect(Collectors.joining(", "));
+        return listRoles.stream().map(el -> el.getName().substring(el.getName().indexOf('_') + 1)).collect(Collectors.joining(", "));
     }
 
     @Override

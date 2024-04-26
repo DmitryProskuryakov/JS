@@ -9,7 +9,7 @@ const closeDeleteButton = document.getElementById("closeDelete")
 const bsDeleteModal = new bootstrap.Modal(deleteModal);
 
 async function deleteModalData(id) {
-    const  urlForDel = 'app/admin/user?id=' + id;
+    const urlForDel = 'app/admin/user?id=' + id;
     let usersPageDel = await fetch(urlForDel);
     if (usersPageDel.ok) {
         let userData =
@@ -19,7 +19,7 @@ async function deleteModalData(id) {
                 lastname_del.value = `${user.lastName}`;
                 age_del.value = `${user.age}`;
                 email_del.value = `${user.email}`;
-                role_del.value = user.authorities.map(r=> r.name.substring(r.name.indexOf('_')+1)).join(", ");
+                role_del.value = user.authorities.map(r => r.name.substring(r.name.indexOf('_') + 1)).join(", ");
             })
 
         bsDeleteModal.show();
@@ -27,6 +27,7 @@ async function deleteModalData(id) {
         alert(`Error, ${usersPageDel.status}`)
     }
 }
+
 async function deleteUser() {
     let urlDel = 'app/admin/delete?id=' + id_del.value;
     let method = {

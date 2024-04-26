@@ -13,7 +13,6 @@ import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @Transactional(readOnly = true)
@@ -54,27 +53,10 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Override
     @Transactional
     public void update(int id, User updatedPerson) {
-        Optional<User> userFromDb = userRepository.findById(id);
-        User user;
+        updatedPerson.setId(id);
+        updatedPerson.setPassword(bCryptPasswordEncoder.encode(updatedPerson.getPassword()));
 
-        if (userFromDb.isPresent()) {
-            user = userFromDb.get();
-        } else {
-            return;
-        }
-
-        user.setFirstName(updatedPerson.getFirstName());
-        user.setLastName(updatedPerson.getLastName());
-        user.setEmail(updatedPerson.getEmail());
-        user.setPassword(bCryptPasswordEncoder.encode(updatedPerson.getPassword()));
-        user.getListRoles().clear();
-        Set<Role> roleSet = updatedPerson.getListRoles();
-
-        for (Role role : roleSet) {
-           user.addRoleToUser(role);
-        }
-
-        userRepository.save(user);
+        userRepository.save(updatedPerson);
     }
 
     @Override

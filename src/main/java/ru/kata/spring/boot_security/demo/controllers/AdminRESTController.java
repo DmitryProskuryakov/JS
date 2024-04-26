@@ -3,7 +3,6 @@ package ru.kata.spring.boot_security.demo.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.models.Role;
 import ru.kata.spring.boot_security.demo.models.User;
@@ -14,7 +13,6 @@ import ru.kata.spring.boot_security.demo.services.UserServiceImpl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 
 @RestController
@@ -41,7 +39,7 @@ public class AdminRESTController {
 
     @GetMapping("/user")
     public ResponseEntity<User> getUser(@RequestParam(required = false) Integer id) {
-            return new ResponseEntity<>(userServiceImpl.findOne(id).get(), HttpStatus.OK);
+        return new ResponseEntity<>(userServiceImpl.findOne(id).get(), HttpStatus.OK);
     }
 
     @GetMapping("/currentUser")

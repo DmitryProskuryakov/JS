@@ -92,87 +92,88 @@
                              aria-labelledby="deleteModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content text-center">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="deleteModalLabel">
-                                                Delete user</h1>
-                                            <button type="button" class="btn-close"
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Закрыть"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-group required">
-                                                <form class="controls">
-                                                    <div>
-                                                        <label for="idDeleteUser">
-                                                            <strong>ID</strong>
-                                                            <input class="form-control "
-                                                                   type="number"
-                                                                   name="id" id="idDeleteUser"
-                                                                   required
-                                                                   disabled>
-                                                        </label>
-                                                    </div>
-                                                    <div>
-                                                        <label for="firstNameUpdateUser">
-                                                            <strong>First Name</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="firstName"
-                                                                   id="firstNameDeleteUser"
-                                                                   required disabled>
-                                                        </label>
-                                                    </div>
-
-                                                    <div>
-                                                        <label for="lastNameDeleteUser">
-                                                            <strong>Last Name</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="lastName"
-                                                                   id="lastNameDeleteUser"
-                                                                   required disabled>
-                                                        </label>
-                                                    </div>
-
-                                                    <div>
-                                                        <label for="emailDeleteUser">
-                                                            <strong>Email Name</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="email" id="emailDeleteUser"
-                                                                   required
-                                                                   disabled>
-                                                        </label>
-                                                    </div>
-
-                                                    <div>
-                                                        <label for="ageDeleteUser">
-                                                            <strong>Age</strong>
-                                                            <input class="form-control"
-                                                                   type="number"
-                                                                   name="age" id="ageDeleteUser"
-                                                                   required
-                                                                   disabled>
-                                                        </label>
-                                                    </div>
-
-                                                    <label class="container-fluid col-6"
-                                                           for="deleteUserRoles">
-                                                        <strong>Role</strong>
-                                                        <input id="deleteUserRoles"
-                                                                class="form-select"
-                                                                name="roles"
-                                                                multiple size="2" disabled>
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="deleteModalLabel">
+                                            Delete user</h1>
+                                        <button type="button" class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Закрыть"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group required">
+                                            <form class="controls">
+                                                <div>
+                                                    <label for="idDeleteUser">
+                                                        <strong>ID</strong>
+                                                        <input class="form-control "
+                                                               type="number"
+                                                               name="id" id="idDeleteUser"
+                                                               required
+                                                               disabled>
                                                     </label>
-
-                                                </form>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeDelete">
-                                                        Close
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary" id="deleteBtn"
-                                                            onclick="deleteUser(); getAdminPage()">Delete
-                                                    </button>
                                                 </div>
+                                                <div>
+                                                    <label for="firstNameUpdateUser">
+                                                        <strong>First Name</strong>
+                                                        <input class="form-control" type="text"
+                                                               name="firstName"
+                                                               id="firstNameDeleteUser"
+                                                               required disabled>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label for="lastNameDeleteUser">
+                                                        <strong>Last Name</strong>
+                                                        <input class="form-control" type="text"
+                                                               name="lastName"
+                                                               id="lastNameDeleteUser"
+                                                               required disabled>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label for="emailDeleteUser">
+                                                        <strong>Email Name</strong>
+                                                        <input class="form-control" type="text"
+                                                               name="email" id="emailDeleteUser"
+                                                               required
+                                                               disabled>
+                                                    </label>
+                                                </div>
+
+                                                <div>
+                                                    <label for="ageDeleteUser">
+                                                        <strong>Age</strong>
+                                                        <input class="form-control"
+                                                               type="number"
+                                                               name="age" id="ageDeleteUser"
+                                                               required
+                                                               disabled>
+                                                    </label>
+                                                </div>
+
+                                                <label class="container-fluid col-6"
+                                                       for="deleteUserRoles">
+                                                    <strong>Role</strong>
+                                                    <input id="deleteUserRoles"
+                                                           class="form-select"
+                                                           name="roles"
+                                                           multiple size="2" disabled>
+                                                </label>
+
+                                            </form>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                                        id="closeDelete">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary" id="deleteBtn"
+                                                        onclick="deleteUser(); getAdminPage()">Delete
+                                                </button>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,98 +182,99 @@
 
                             <div class="modal-dialog">
                                 <div class="modal-content text-center">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit
-                                                user</h1>
-                                            <button type="button" class="btn-close"
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Закрыть"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form class="form-group required" id="formForEditing">
-                                                    <div>
-                                                        <label for="idUpdateUser">
-                                                            <strong>ID</strong>
-                                                            <input class="form-control"
-                                                                   type="number"
-                                                                   name="id" id="idUpdateUser"
-                                                                   required
-                                                                   disabled>
-                                                        </label>
-                                                    </div>
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit
+                                            user</h1>
+                                        <button type="button" class="btn-close"
+                                                data-bs-dismiss="modal"
+                                                aria-label="Закрыть"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-group required" id="formForEditing">
+                                            <div>
+                                                <label for="idUpdateUser">
+                                                    <strong>ID</strong>
+                                                    <input class="form-control"
+                                                           type="number"
+                                                           name="id" id="idUpdateUser"
+                                                           required
+                                                           disabled>
+                                                </label>
+                                            </div>
 
-                                                    <div>
-                                                        <label for="firstNameUpdateUser">
-                                                            <strong>First Name</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="firstName"
-                                                                   id="firstNameUpdateUser"
-                                                                   required>
-                                                        </label>
-                                                    </div>
+                                            <div>
+                                                <label for="firstNameUpdateUser">
+                                                    <strong>First Name</strong>
+                                                    <input class="form-control" type="text"
+                                                           name="firstName"
+                                                           id="firstNameUpdateUser"
+                                                           required>
+                                                </label>
+                                            </div>
 
-                                                    <div>
-                                                        <label for="lastNameUpdateUser">
-                                                            <strong>Last Name</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="lastName"
-                                                                   id="lastNameUpdateUser"
-                                                                   required>
-                                                        </label>
-                                                    </div>
+                                            <div>
+                                                <label for="lastNameUpdateUser">
+                                                    <strong>Last Name</strong>
+                                                    <input class="form-control" type="text"
+                                                           name="lastName"
+                                                           id="lastNameUpdateUser"
+                                                           required>
+                                                </label>
+                                            </div>
 
-                                                    <div>
-                                                        <label for="emailUpdateUser">
-                                                            <strong>Email Name</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="email" id="emailUpdateUser"
-                                                                   required>
-                                                        </label>
-                                                    </div>
+                                            <div>
+                                                <label for="emailUpdateUser">
+                                                    <strong>Email Name</strong>
+                                                    <input class="form-control" type="text"
+                                                           name="email" id="emailUpdateUser"
+                                                           required>
+                                                </label>
+                                            </div>
 
-                                                    <div>
-                                                        <label for="ageUpdateUser">
-                                                            <strong>Age</strong>
-                                                            <input class="form-control"
-                                                                   type="number"
-                                                                   name="age" id="ageUpdateUser"
-                                                                   required>
-                                                        </label>
-                                                    </div>
+                                            <div>
+                                                <label for="ageUpdateUser">
+                                                    <strong>Age</strong>
+                                                    <input class="form-control"
+                                                           type="number"
+                                                           name="age" id="ageUpdateUser"
+                                                           required>
+                                                </label>
+                                            </div>
 
-                                                    <div>
-                                                        <label for="passwordUpdateUser">
-                                                            <strong>Password</strong>
-                                                            <input class="form-control" type="text"
-                                                                   name="password"
-                                                                   id="passwordUpdateUser"
-                                                                   th:type="text"
-                                                                   th:name="password"
-                                                            >
-                                                        </label>
-                                                    </div>
-                                                <div>
+                                            <div>
+                                                <label for="passwordUpdateUser">
+                                                    <strong>Password</strong>
+                                                    <input class="form-control" type="text"
+                                                           name="password"
+                                                           id="passwordUpdateUser"
+                                                           th:type="text"
+                                                           th:name="password"
+                                                    >
+                                                </label>
+                                            </div>
+                                            <div>
 
-                                                    <label class="container-fluid col-6" for="updateUserRoles">
-                                                        <strong>Role</strong>
-                                                        <select multiple="multiple" name="roles" id="updateUserRoles" class="form-select" size="2">
-                                                            <option value="1">USER</option>
-                                                            <option value="2">ADMIN</option>
-                                                        </select>
-                                                    </label>
-                                                </div>
+                                                <label class="container-fluid col-6" for="updateUserRoles">
+                                                    <strong>Role</strong>
+                                                    <select multiple="multiple" name="roles" id="updateUserRoles"
+                                                            class="form-select" size="2">
+                                                        <option value="2">USER</option>
+                                                        <option value="1">ADMIN</option>
+                                                    </select>
+                                                </label>
+                                            </div>
 
-                                                <div class="modal-footer">
-                                                    <button type="button" id="updateFormCloseButton"
-                                                            class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close
-                                                    </button>
-                                                    <button type="submit" class="btn btn-danger" id="editBtn"
-                                                            onclick="editUser(); getAdminPage()">Edit
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="updateFormCloseButton"
+                                                        class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close
+                                                </button>
+                                                <button type="submit" class="btn btn-danger" id="editBtn"
+                                                        onclick="editUser(); getAdminPage()">Edit
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -288,28 +290,28 @@
                                 <form id="formNewUser" name="formNewUser">
 
                                     <div><label for="firstName">First name</label>
-                                    <input class="form-control bg-warning" placeholder="First name"
-                                           id="firstName" required>
+                                        <input class="form-control bg-warning" placeholder="First name"
+                                               id="firstName" required>
                                     </div>
 
                                     <div><label for="lastName">Last name</label>
-                                    <input class="form-control bg-warning" placeholder="Last name"
-                                           id="lastName" required>
+                                        <input class="form-control bg-warning" placeholder="Last name"
+                                               id="lastName" required>
                                     </div>
 
                                     <div><label for="age">Age</label>
-                                    <input class="form-control" placeholder="Age"
-                                           id="age" required>
+                                        <input class="form-control" placeholder="Age"
+                                               id="age" required>
                                     </div>
 
                                     <div><label for="email">Email</label>
-                                    <input class="form-control bg-warning" placeholder="Email"
-                                           id="email" required>
+                                        <input class="form-control bg-warning" placeholder="Email"
+                                               id="email" required>
                                     </div>
 
                                     <div><label for="password">Password</label>
-                                    <input class="form-control" placeholder="Password"
-                                           id="password" required>
+                                        <input class="form-control" placeholder="Password"
+                                               id="password" required>
                                     </div>
 
                                     <div class="mb-3">

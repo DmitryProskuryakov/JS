@@ -5,7 +5,7 @@ authUser.then(user => {
         let roles = '';
         user.authorities.forEach(role => {
             roles += ' '
-            roles += role.name.substring(role.name.indexOf('_')+1)
+            roles += role.name.substring(role.name.indexOf('_') + 1)
         })
         document.getElementById("navbar-firstName").innerHTML = user.firstName
         document.getElementById("navbar-roles").innerHTML = roles
@@ -29,7 +29,7 @@ function getInformationAboutUser(user) {
     let roles = [];
     console.log('userData', JSON.stringify(user))
     for (let role of user.authorities) {
-        roles.push(" " + role.name.substring(role.name.indexOf('_')+1))
+        roles.push(" " + role.name.substring(role.name.indexOf('_') + 1))
     }
 
     dataHtml =

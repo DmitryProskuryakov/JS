@@ -19,7 +19,7 @@ async function loadDataForEditModal(id) {
             console.log('userData', JSON.stringify(user))
 
             id_ed.value = user.id;
-            name_ed.value =user.firstName;
+            name_ed.value = user.firstName;
             lastname_ed.value = user.lastName;
             age_ed.value = user.age;
             email_ed.value = user.email;
@@ -34,20 +34,22 @@ async function loadDataForEditModal(id) {
                 }
             }
         })
+
         console.log("id_ed: " + id_ed.value + " !!")
         bsEditModal.show();
     } else {
         alert(`Error, ${usersPageEd.status}`)
     }
 }
+
 async function editUser() {
     let urlEdit = 'app/admin/edit?id=' + id_ed.value;
     let listOfRole = [];
     console.dir(form_ed)
-    for (let i=0; i<form_ed.roles.options.length; i++) {
+    for (let i = 0; i < form_ed.roles.options.length; i++) {
         if (form_ed.roles.options[i].selected) {
-            let tmp={};
-            tmp["id"]=form_ed.roles.options[i].value
+            let tmp = {};
+            tmp["id"] = form_ed.roles.options[i].value
             listOfRole.push(tmp);
         }
     }
@@ -59,14 +61,14 @@ async function editUser() {
         body: JSON.stringify({
             firstName: form_ed.firstName.value,
             lastName: form_ed.lastName.value,
-            age:form_ed.age.value,
+            age: form_ed.age.value,
             email: form_ed.email.value,
             password: form_ed.password.value,
             listRoles: listOfRole
         })
     }
-    console.log(urlEdit,method)
-    await fetch(urlEdit,method).then(() => {
+    console.log(urlEdit, method)
+    await fetch(urlEdit, method).then(() => {
         closeEditButton.click();
         getAdminPage();
     })

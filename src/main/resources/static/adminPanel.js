@@ -3,15 +3,14 @@ const currentUserURL = '/app/admin/currentUser';
 
 const authAdm = fetch(currentUserURL).then(response => response.json())
 authAdm.then(user => {
-        let roles = '';
-        user.authorities.forEach(role => {
-            roles += ' '
-            roles += role.name.substring(role.name.indexOf('_')+1)
-        })
-        document.getElementById("navbar-firstName").innerHTML = user.firstName
-        document.getElementById("navbar-roles").innerHTML = roles
-    }
-)
+    let roles = '';
+    user.authorities.forEach(role => {
+        roles += ' '
+        roles += role.name.substring(role.name.indexOf('_') + 1)
+    })
+    document.getElementById("navbar-firstName").innerHTML = user.firstName
+    document.getElementById("navbar-roles").innerHTML = roles
+})
 
 async function getAdminPage() {
     let page = await fetch(urlAdm);
@@ -31,11 +30,10 @@ function getTable(listUsers) {
         let roles = [];
         for (let role of user.authorities) {
             if (role.name) {
-                roles.push(" " + role.name.substring(role.name.indexOf('_')+1));
+                roles.push(" " + role.name.substring(role.name.indexOf('_') + 1));
             }
         }
-        dataHtml +=
-            `<tr>
+        dataHtml += `<tr>
     <td>${user.id}</td>
     <td>${user.firstName}</td>
     <td>${user.lastName}</td>
@@ -58,4 +56,5 @@ function getTable(listUsers) {
     }
     tableBody.innerHTML = dataHtml;
 }
+
 getAdminPage();

@@ -10,11 +10,16 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
-public class RoleServiceImpl implements RoleService{
+public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
 
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
+    }
+
+    @Transactional
+    public void save(Role role) {
+        roleRepository.save(role);
     }
 
     public Set<Role> getRoleSet() {
