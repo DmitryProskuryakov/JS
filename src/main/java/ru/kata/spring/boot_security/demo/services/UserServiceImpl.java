@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         user.setEmail(updatedPerson.getEmail());
         user.setPassword(bCryptPasswordEncoder.encode(updatedPerson.getPassword()));
         user.getListRoles().clear();
-        Set<Role> roleSet = (Set<Role>) updatedPerson.getAuthorities();
+        Set<Role> roleSet = updatedPerson.getListRoles();
 
         for (Role role : roleSet) {
            user.addRoleToUser(role);

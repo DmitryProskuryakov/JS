@@ -1,7 +1,7 @@
 const form_new = document.getElementById('formNewUser');
 const create_btn = document.getElementById('closeCreateButton');
 const user_table_tab= document.getElementById('home-tab');
-const rolesSelect = document.querySelector('#setListRoles');
+const rolesSelect = document.querySelector('#roles');
 form_new.addEventListener('submit', addNewUser);
 
 async function addNewUser(event) {
@@ -13,6 +13,7 @@ async function addNewUser(event) {
         listOfRole.push({
             id: rolesSelect.selectedOptions[i].value
         });
+
     }
 
     let method = {
@@ -62,7 +63,7 @@ async function addNewUser(event) {
         console.error('Произошла ошибка:', error.message);
     }
 }
-const rolesElement = document.getElementById('setListRoles');
+const rolesElement = document.getElementById('roles');
 
 
 async function getRoles() {

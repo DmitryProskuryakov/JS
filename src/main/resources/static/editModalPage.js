@@ -41,7 +41,7 @@ async function loadDataForEditModal(id) {
     }
 }
 async function editUser() {
-    let urlEdit = 'api/admin/edit?id=' + id_ed.value;
+    let urlEdit = 'app/admin/edit?id=' + id_ed.value;
     let listOfRole = [];
     console.dir(form_ed)
     for (let i=0; i<form_ed.roles.options.length; i++) {
